@@ -1,9 +1,23 @@
+import Navbar from "@/components/home/Navbar";
 import Hero from "@/components/home/Hero";
+import About from "@/components/home/About";
+import Skills from "@/components/home/Skills";
+import Experience from "@/components/home/Experience";
+import Projects from "@/components/home/Projects";
+import Contact from "@/components/home/Contact";
+import Footer from "@/components/home/Footer";
 
 export default function Home() {
   return (
-    <main>
+    <>
+      <Navbar />
       <Hero />
-    </main>
+      <About />
+      <Skills />
+      <Experience />
+      <Projects />
+      <Contact />
+      <Footer />
+    </>
   );
 }

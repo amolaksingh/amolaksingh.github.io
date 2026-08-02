@@ -1,30 +1,21 @@
+"use client";
+
 type ButtonProps = {
   children: React.ReactNode;
   variant?: "primary" | "secondary";
-  onClick?: () => void;
-  className?: string;
 };
 
 export default function Button({
   children,
   variant = "primary",
-  onClick,
-  className = "",
 }: ButtonProps) {
-  const baseClasses =
-    "inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300";
-
-  const variants = {
-    primary:
-      "bg-blue-600 text-white hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-500/20",
-    secondary:
-      "border border-slate-600 text-white hover:border-blue-500 hover:bg-slate-800",
-  };
-
   return (
     <button
-      onClick={onClick}
-      className={`${baseClasses} ${variants[variant]} ${className}`}
+      className={`rounded-2xl px-7 py-3 text-sm font-semibold transition-all duration-300 active:scale-95 ${
+        variant === "primary"
+          ? "bg-blue-600 text-white hover:scale-105 hover:bg-blue-500 hover:shadow-[0_0_25px_rgba(37,99,235,0.5)]"
+          : "border border-slate-700 bg-transparent text-white hover:border-blue-500 hover:bg-slate-900"
+      }`}
     >
       {children}
     </button>
