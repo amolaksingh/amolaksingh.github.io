@@ -82,6 +82,7 @@ export default function About() {
 
       </div>
       </FadeUp>
+
       <div className="mx-auto mt-24 h-px max-w-7xl bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
     </section>
   );

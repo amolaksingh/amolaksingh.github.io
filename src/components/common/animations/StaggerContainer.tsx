@@ -1,7 +1,5 @@
-"use client";
-
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, Children } from "react";
 
 type Props = {
   children: ReactNode;
@@ -40,23 +38,14 @@ export default function StaggerContainer({
       variants={container}
       initial="hidden"
       whileInView="visible"
-      viewport={{
-        once: true,
-        amount: 0.2,
-      }}
+      viewport={{ once: true, amount: 0.2 }}
       className={className}
     >
-      {Array.isArray(children)
-        ? children.map((child, index) => (
-            <motion.div key={index} variants={item}>
-              {child}
-            </motion.div>
-          ))
-        : (
-          <motion.div variants={item}>
-            {children}
-          </motion.div>
-        )}
+      {Children.map(children, (child, index) => (
+        <motion.div key={index} variants={item}>
+          {child}
+        </motion.div>
+      ))}
     </motion.div>
   );
 }

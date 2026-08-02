@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import IPhoneMockup from "../common/IPhoneMockup";
 import PropertyPreview from "../common/PropertyPreview";
 import type { Variants } from "framer-motion";
+import { useState } from "react";
+import HireModal from "../hire/HireModal";
 
 const fadeUp: Variants = {
   hidden: {
@@ -22,7 +24,11 @@ const fadeUp: Variants = {
   }),
 };
 
-export default function Hero() {
+type HeroProps = {
+  onOpenHire: () => void;
+};
+
+export default function Hero({ onOpenHire }: HeroProps) {
   return (
     <section className="relative overflow-hidden bg-[#050816] pt-36">
       <AnimatedBackground />
@@ -83,9 +89,16 @@ export default function Hero() {
             variants={fadeUp}
             className="mt-12 flex flex-wrap gap-5"
           >
-            <Button>Hire Me</Button>
+            <Button onClick={onOpenHire}>Hire Me</Button>
 
-            <Button variant="secondary">Download CV</Button>
+            <Button
+              variant="secondary"
+              onClick={() =>
+                window.open("/resume/Amolak_Singh_Resume.pdf", "_blank")
+              }
+            >
+              Download Resume
+            </Button>
           </motion.div>
 
           {/* STATS */}
