@@ -47,103 +47,119 @@ export default function HireForm({ onClose }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 p-8">
-      <div className="grid gap-6 md:grid-cols-2">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="space-y-5 p-5 sm:space-y-6 sm:p-6 lg:p-8"
+    >
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
         <div>
-          <label className="mb-2 block text-sm font-medium text-white">
+          <label className="mb-2 block text-sm font-medium tracking-wide text-white">
             Full Name
           </label>
 
           <input
             {...register("name")}
+            type="text"
+            autoComplete="name"
             placeholder="John Smith"
-            className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none transition focus:border-blue-500"
+            className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3.5 text-base text-white placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
           />
 
           {errors.name && (
-            <p className="mt-2 text-sm text-red-400">{errors.name.message}</p>
+            <p className="mt-2 text-xs font-medium text-red-400">
+              {errors.name.message}
+            </p>
           )}
         </div>
 
         <div>
-          <label className="mb-2 block text-sm font-medium text-white">
+          <label className="mb-2 block text-sm font-medium tracking-wide text-white">
             Email
           </label>
 
           <input
             {...register("email")}
             placeholder="john@company.com"
-            className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none transition focus:border-blue-500"
+            type="email"
+            autoComplete="email"
+            className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3.5 text-base text-white placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
           />
 
           {errors.email && (
-            <p className="mt-2 text-sm text-red-400">{errors.email.message}</p>
+            <p className="mt-2 text-xs font-medium text-red-400">
+              {errors.email.message}
+            </p>
           )}
         </div>
 
         <div>
-          <label className="mb-2 block text-sm font-medium text-white">
+          <label className="mb-2 block text-sm font-medium tracking-wide text-white">
             Company
           </label>
 
           <input
             {...register("company")}
             placeholder="Google"
+            autoComplete="organization"
             className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none transition focus:border-blue-500"
           />
 
           {errors.company && (
-            <p className="mt-2 text-sm text-red-400">
+            <p className="mt-2 text-xs font-medium text-red-400">
               {errors.company.message}
             </p>
           )}
         </div>
 
         <div>
-          <label className="mb-2 block text-sm font-medium text-white">
+          <label className="mb-2 block text-sm font-medium tracking-wide text-white">
             Country
           </label>
 
           <input
             {...register("country")}
             placeholder="United States"
+            autoComplete="country-name"
             className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none transition focus:border-blue-500"
           />
 
           {errors.country && (
-            <p className="mt-2 text-sm text-red-400">
+            <p className="mt-2 text-xs font-medium text-red-400">
               {errors.country.message}
             </p>
           )}
         </div>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
         <div>
-          <label className="mb-2 block text-sm font-medium text-white">
+          <label className="mb-2 block text-sm font-medium tracking-wide text-white">
             Job Role
           </label>
 
           <input
             {...register("role")}
+            autoComplete="organization-title"
             placeholder="Senior Engineering Manager"
             className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none transition focus:border-blue-500"
           />
 
           {errors.role && (
-            <p className="mt-2 text-sm text-red-400">{errors.role.message}</p>
+            <p className="mt-2 text-xs font-medium text-red-400">
+              {errors.role.message}
+            </p>
           )}
         </div>
 
         <div>
-          <label className="mb-2 block text-sm font-medium text-white">
+          <label className="mb-2 block text-sm font-medium tracking-wide text-white">
             Project Type
           </label>
 
           <div className="relative">
             <select
               {...register("projectType")}
-              className="w-full appearance-none rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 pr-12 text-white outline-none transition focus:border-blue-500"
+              className="w-full appearance-none rounded-xl border border-slate-700 bg-slate-900 px-4 py-3.5 pr-12 text-base text-white outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
             >
               <option value="">Select Project Type</option>
               <option>Full Time</option>
@@ -159,23 +175,25 @@ export default function HireForm({ onClose }: Props) {
           </div>
 
           {errors.projectType && (
-            <p className="mt-2 text-sm text-red-400">
+            <p className="mt-2 text-xs font-medium text-red-400">
               {errors.projectType.message}
             </p>
           )}
         </div>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
+           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
+        {/* Budget */}
+
         <div>
-          <label className="mb-2 block text-sm font-medium text-white">
+          <label className="mb-2 block text-sm font-medium tracking-wide text-white">
             Budget
           </label>
 
           <div className="relative">
             <select
               {...register("budget")}
-              className="w-full appearance-none rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 pr-12 text-white outline-none transition focus:border-blue-500"
+              className="w-full appearance-none rounded-xl border border-slate-700 bg-slate-900 px-4 py-3.5 pr-12 text-base text-white outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
             >
               <option value="">Select Budget</option>
               <option>$2k - $5k</option>
@@ -191,19 +209,23 @@ export default function HireForm({ onClose }: Props) {
           </div>
 
           {errors.budget && (
-            <p className="mt-2 text-sm text-red-400">{errors.budget.message}</p>
+            <p className="mt-2 text-xs font-medium text-red-400">
+              {errors.budget.message}
+            </p>
           )}
         </div>
 
+        {/* Timeline */}
+
         <div>
-          <label className="mb-2 block text-sm font-medium text-white">
+          <label className="mb-2 block text-sm font-medium tracking-wide text-white">
             Timeline
           </label>
 
           <div className="relative">
             <select
               {...register("timeline")}
-              className="w-full appearance-none rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 pr-12 text-white outline-none transition focus:border-blue-500"
+              className="w-full appearance-none rounded-xl border border-slate-700 bg-slate-900 px-4 py-3.5 pr-12 text-base text-white outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
             >
               <option value="">Select Timeline</option>
               <option>Immediately</option>
@@ -220,39 +242,52 @@ export default function HireForm({ onClose }: Props) {
           </div>
 
           {errors.timeline && (
-            <p className="mt-2 text-sm text-red-400">
+            <p className="mt-2 text-xs font-medium text-red-400">
               {errors.timeline.message}
             </p>
           )}
         </div>
       </div>
 
+      {/* Description */}
+
       <div>
-        <label className="mb-2 block text-sm font-medium text-white">
+        <label className="mb-2 block text-sm font-medium tracking-wide text-white">
           Project Description
         </label>
 
         <textarea
           {...register("description")}
-          rows={6}
-          placeholder="Tell me about your project..."
-          className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white outline-none transition focus:border-blue-500"
+          rows={5}
+          placeholder="Tell me about your project, expected timeline, platform, requirements, integrations, or any other details..."
+          className="min-h-[160px] w-full resize-y rounded-xl border border-slate-700 bg-slate-900 px-4 py-3.5 text-base text-white placeholder:text-slate-500 outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
         />
 
         {errors.description && (
-          <p className="mt-2 text-sm text-red-400">
+          <p className="mt-2 text-xs font-medium text-red-400">
             {errors.description.message}
           </p>
         )}
       </div>
 
-      <div className="flex justify-end gap-4">
-        <Button type="button" variant="secondary" onClick={onClose}>
+      {/* Buttons */}
+
+      <div className="flex flex-col-reverse gap-3 border-t border-slate-800 pt-6 sm:flex-row sm:justify-end">
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={onClose}
+          className="w-full sm:w-auto"
+        >
           Cancel
         </Button>
 
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Sending..." : "Send Request"}
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full sm:w-auto"
+        >
+          {isSubmitting ? "Sending Request..." : "Send Request"}
         </Button>
       </div>
     </form>

@@ -1,4 +1,5 @@
 import StaggerContainer from "../common/animations/StaggerContainer";
+
 const experiences = [
   {
     year: "Feb 2020 - Present",
@@ -31,7 +32,6 @@ const experiences = [
       "Cursor AI",
     ],
   },
-
   {
     year: "Aug 2017 - Jan 2020",
     role: "Android Application Engineer",
@@ -60,51 +60,77 @@ const experiences = [
   },
 ];
 
-
-
 export default function Experience() {
   return (
-    <section id="experience" className="relative overflow-hidden bg-[#050816] py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
-        <span className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-400">
+    <section
+      id="experience"
+      className="relative overflow-hidden bg-[#050816] py-20 lg:py-24 scroll-mt-28"
+    >
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-12">
+        <span className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-400 sm:text-sm">
           Experience
         </span>
 
-        <h2 className="mt-6 text-5xl font-bold text-white">My Journey</h2>
+        <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl lg:mt-6 lg:text-5xl">
+          My Journey
+        </h2>
 
-        <div className="relative mt-20">
-          <div className="absolute left-5 top-0 h-full w-[2px] bg-slate-700" />
+        <div className="relative mt-12 lg:mt-16">
+          {/* Timeline */}
 
-          <StaggerContainer className="space-y-14">
+          <div className="absolute left-4 top-0 h-full w-[2px] bg-slate-700 sm:left-5" />
+
+          <StaggerContainer className="space-y-10 lg:space-y-14">
             {experiences.map((item) => (
-              <div key={item.year} className="relative pl-16">
-                <div className="absolute left-0 top-2 flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 ring-8 ring-[#050816]" />
+              <div
+                key={item.year}
+                className="relative pl-12 sm:pl-16"
+              >
+                {/* Timeline Dot */}
 
-                <span className="text-blue-400 font-semibold">{item.year}</span>
+                <div className="absolute left-0 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 ring-4 ring-[#050816] sm:h-10 sm:w-10 sm:ring-8" />
 
-                <h3 className="mt-2 text-3xl font-bold text-white">
+                {/* Year */}
+
+                <span className="text-sm font-semibold text-blue-400 sm:text-base">
+                  {item.year}
+                </span>
+
+                {/* Role */}
+
+                <h3 className="mt-2 text-xl font-bold text-white sm:text-2xl lg:text-3xl">
                   {item.role}
                 </h3>
 
-                <div className="mt-2 flex flex-wrap items-center gap-2 text-slate-300">
-                  <span className="text-xl font-medium">{item.company}</span>
+                {/* Company */}
 
-                  <span className="text-slate-500">•</span>
+                <div className="mt-2 flex flex-col gap-1 text-slate-300 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2">
+                  <span className="text-base font-semibold sm:text-lg">
+                    {item.company}
+                  </span>
 
-                  <span className="text-lg text-slate-400">
+                  <span className="hidden text-slate-500 sm:inline">
+                    •
+                  </span>
+
+                  <span className="text-sm text-slate-400 sm:text-base">
                     {item.location}
                   </span>
                 </div>
 
-                <p className="mt-6 max-w-3xl leading-8 text-slate-400">
+                {/* Description */}
+
+                <p className="mt-5 max-w-3xl text-sm leading-7 text-slate-400 sm:text-base sm:leading-8">
                   {item.description}
                 </p>
+
+                {/* Achievements */}
 
                 <ul className="mt-6 space-y-3">
                   {item.achievements.map((achievement) => (
                     <li
                       key={achievement}
-                      className="flex items-start gap-3 text-slate-400"
+                      className="flex items-start gap-3 text-sm text-slate-300 sm:text-base"
                     >
                       <span className="mt-2 h-2 w-2 rounded-full bg-blue-500" />
 
@@ -113,11 +139,13 @@ export default function Experience() {
                   ))}
                 </ul>
 
-                <div className="mt-6 flex flex-wrap gap-3">
+                {/* Tech Stack */}
+
+                <div className="mt-6 flex flex-wrap gap-2">
                   {item.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full border border-slate-700 bg-slate-900 px-4 py-2 text-sm text-slate-300"
+                      className="rounded-full border border-slate-700 bg-slate-900 px-3 py-1.5 text-xs text-slate-300 sm:px-4 sm:py-2 sm:text-sm"
                     >
                       {tech}
                     </span>
@@ -128,7 +156,8 @@ export default function Experience() {
           </StaggerContainer>
         </div>
       </div>
-      <div className="mx-auto mt-24 h-px max-w-7xl bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
+
+      <div className="mx-auto mt-20 h-px max-w-7xl bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
     </section>
   );
 }
