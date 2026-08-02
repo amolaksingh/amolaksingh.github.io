@@ -3,21 +3,21 @@
 import Button from "../common/Button";
 import AnimatedBackground from "../background/AnimatedBackground";
 import { motion } from "framer-motion";
-import { Smartphone } from "lucide-react";
 import IPhoneMockup from "../common/IPhoneMockup";
 import PropertyPreview from "../common/PropertyPreview";
-const fadeUp = {
+import type { Variants } from "framer-motion";
+
+const fadeUp: Variants = {
   hidden: {
     opacity: 0,
     y: 40,
   },
-  visible: (delay: number) => ({
+  visible: (custom = 0) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay,
+      delay: custom,
       duration: 0.7,
-      ease: "easeOut",
     },
   }),
 };
