@@ -17,64 +17,81 @@ export default function Navbar() {
 
     window.addEventListener("scroll", onScroll);
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
     }
 
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
     };
   }, [menuOpen]);
 
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  const downloadResume = () => {
+    window.open("/resume/Amolak_Singh_Resume.pdf", "_blank");
+  };
 
   return (
     <>
-      <header
-        className={`fixed inset-x-0 top-0 z-50 transition-opacity duration-200 ${
-          menuOpen ? "opacity-0 pointer-events-none" : "opacity-100"
-        }`}
-      >
-        {/* Navbar */}
-        <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
+      {/* =========================
+          DESKTOP / MOBILE NAVBAR
+      ========================== */}
+
+      <header className="fixed inset-x-0 top-0 z-50 w-full overflow-x-clip">
+        <div className="mx-auto w-full max-w-7xl px-3 pt-3 sm:px-6 sm:pt-4 lg:px-8">
           <div
-            className={`rounded-2xl border transition-all duration-300 ${
+            className={`w-full rounded-2xl border transition-all duration-300 ${
               scrolled
-                ? "border-slate-700 bg-slate-900/90 backdrop-blur-2xl shadow-xl"
+                ? "border-slate-700 bg-slate-900/90 shadow-xl backdrop-blur-2xl"
                 : "border-transparent bg-transparent"
             }`}
           >
-            {/* Desktop / Mobile Header */}
+            <div className="flex h-16 w-full min-w-0 items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
+              {/* =========================
+                  LOGO
+              ========================== */}
 
-            <div className="flex h-16 items-center justify-between px-5 sm:h-20 sm:px-8">
-              {/* Logo */}
-
-              <a href="#" className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 text-lg font-bold text-white">
+              <a
+                href="#"
+                className="flex min-w-0 shrink-0 items-center gap-3"
+                onClick={closeMenu}
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 text-base font-bold text-white sm:h-11 sm:w-11 sm:text-lg">
                   AS
                 </div>
 
-                <div className="hidden sm:block">
-                  <h2 className="font-bold text-white">Amolak Singh</h2>
+                <div className="hidden min-w-0 sm:block">
+                  <h2 className="truncate font-bold text-white">
+                    Amolak Singh
+                  </h2>
 
-                  <p className="text-xs text-slate-400">Android Engineer</p>
+                  <p className="truncate text-xs text-slate-400">
+                    Android Engineer
+                  </p>
                 </div>
               </a>
 
-              {/* Desktop Navigation */}
+              {/* =========================
+                  DESKTOP NAVIGATION
+              ========================== */}
 
-              <nav className="hidden items-center gap-10 lg:flex">
+              <nav className="hidden items-center gap-8 lg:flex xl:gap-10">
                 {navItems.map((item) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
-                    className="group relative text-sm font-medium text-slate-300 transition hover:text-white"
+                    className="group relative whitespace-nowrap text-sm font-medium text-slate-300 transition hover:text-white"
                   >
                     {item}
 
@@ -83,78 +100,95 @@ export default function Navbar() {
                 ))}
               </nav>
 
-              {/* Desktop Resume */}
+              {/* =========================
+                  DESKTOP RESUME
+              ========================== */}
 
-              <div className="hidden lg:block">
+              <div className="hidden shrink-0 lg:block">
                 <Button
                   variant="secondary"
-                  onClick={() =>
-                    window.open("/resume/Amolak_Singh_Resume.pdf", "_blank")
-                  }
+                  onClick={downloadResume}
                 >
                   Download CV
                 </Button>
               </div>
 
-              {/* Mobile Menu Button */}
+              {/* =========================
+                  MOBILE MENU BUTTON
+              ========================== */}
 
               <button
-                onClick={() => setMenuOpen(!menuOpen)}
-                className="rounded-xl p-2 text-white transition hover:bg-slate-800 lg:hidden"
+                type="button"
+                aria-label={menuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={menuOpen}
+                onClick={() => setMenuOpen((previous) => !previous)}
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-white transition hover:bg-slate-800 lg:hidden"
               >
-                {menuOpen ? <X size={28} /> : <Menu size={28} />}
+                <Menu size={27} />
               </button>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* =========================
+          MOBILE FULL SCREEN MENU
+      ========================== */}
 
       {menuOpen && (
-        <div className="fixed inset-0 z-[100] bg-[#050816] lg:hidden">
-          {/* Header */}
+        <div className="fixed inset-0 z-[100] h-dvh w-screen overflow-hidden bg-[#050816] lg:hidden">
+          {/* Mobile Menu Header */}
 
-          <div className="flex h-20 items-center justify-between border-b border-slate-800 px-6">
+          <div className="flex h-20 w-full items-center justify-between border-b border-slate-800 px-5 sm:px-6">
+            {/* Logo */}
+
             <a
               href="#"
               onClick={closeMenu}
-              className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 text-2xl font-bold text-white"
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 text-xl font-bold text-white"
             >
               AS
             </a>
 
+            {/* Close Button */}
+
             <button
+              type="button"
+              aria-label="Close menu"
               onClick={closeMenu}
-              className="rounded-xl p-2 text-white transition hover:bg-slate-800"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-white transition hover:bg-slate-800"
             >
-              <X size={34} />
+              <X size={30} />
             </button>
           </div>
 
-          {/* Content */}
+          {/* Mobile Menu Content */}
 
-          <div className="flex h-[calc(100vh-80px)] flex-col overflow-y-auto">
-            <nav className="flex-1 space-y-8 px-8 py-10">
+          <div className="flex h-[calc(100dvh-80px)] w-full flex-col overflow-y-auto overflow-x-hidden">
+            {/* Navigation */}
+
+            <nav className="flex-1 space-y-7 px-6 py-8 sm:px-8 sm:py-10">
               {navItems.map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   onClick={closeMenu}
-                  className="block text-3xl font-semibold text-slate-300 transition hover:text-blue-400"
+                  className="block text-2xl font-semibold text-slate-300 transition hover:text-blue-400 sm:text-3xl"
                 >
                   {item}
                 </a>
               ))}
             </nav>
 
-            <div className="border-t border-slate-800 p-6">
+            {/* Bottom Resume Button */}
+
+            <div className="w-full border-t border-slate-800 p-5 sm:p-6">
               <Button
                 variant="secondary"
                 className="w-full"
                 onClick={() => {
                   closeMenu();
-                  window.open("/resume/Amolak_Singh_Resume.pdf", "_blank");
+                  downloadResume();
                 }}
               >
                 Download CV

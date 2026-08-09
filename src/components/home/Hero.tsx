@@ -75,9 +75,9 @@ export default function Hero({ onOpenHire }: HeroProps) {
             className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-400 sm:text-lg lg:mx-0 lg:text-xl"
           >
             Senior Mobile Architect & Tech Lead with 9+ years of experience
-            building high-performance Android applications using Kotlin,
-            Jetpack Compose, Compose Multiplatform, Clean Architecture,
-            MVI, and AI-powered mobile experiences.
+            building high-performance Android applications using Kotlin, Jetpack
+            Compose, Compose Multiplatform, Clean Architecture, MVI, and
+            AI-powered mobile experiences.
           </motion.p>
 
           {/* Buttons */}
@@ -89,17 +89,12 @@ export default function Hero({ onOpenHire }: HeroProps) {
             variants={fadeUp}
             className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start"
           >
-            <Button onClick={onOpenHire}>
-              Hire Me
-            </Button>
+            <Button onClick={onOpenHire}>Hire Me</Button>
 
             <Button
               variant="secondary"
               onClick={() =>
-                window.open(
-                  "/resume/Amolak_Singh_Resume.pdf",
-                  "_blank"
-                )
+                window.open("/resume/Amolak_Singh_Resume.pdf", "_blank")
               }
             >
               Download Resume
@@ -141,27 +136,22 @@ export default function Hero({ onOpenHire }: HeroProps) {
             variants={fadeUp}
             className="mt-12 flex flex-wrap justify-center gap-3 lg:justify-start"
           >
-            {[
-              "Kotlin",
-              "Compose",
-              "KMP",
-              "Android",
-              "Firebase",
-              "AI",
-            ].map((item) => (
-              <motion.span
-                key={item}
-                whileHover={{
-                  scale: 1.08,
-                }}
-                transition={{
-                  duration: 0.2,
-                }}
-                className="rounded-full border border-slate-700 bg-slate-900/80 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-blue-500 hover:text-white"
-              >
-                {item}
-              </motion.span>
-            ))}
+            {["Kotlin", "Compose", "KMP", "Android", "Firebase", "AI"].map(
+              (item) => (
+                <motion.span
+                  key={item}
+                  whileHover={{
+                    scale: 1.08,
+                  }}
+                  transition={{
+                    duration: 0.2,
+                  }}
+                  className="rounded-full border border-slate-700 bg-slate-900/80 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-blue-500 hover:text-white"
+                >
+                  {item}
+                </motion.span>
+              ),
+            )}
           </motion.div>
         </div>
 
@@ -183,10 +173,12 @@ export default function Hero({ onOpenHire }: HeroProps) {
 
             <div className="absolute -right-10 bottom-0 h-40 w-40 rounded-full bg-cyan-400/20 blur-[90px] sm:h-48 sm:w-48 lg:h-56 lg:w-56" />
 
-            <div className="w-[220px] sm:w-[260px] md:w-[300px] lg:w-auto">
-              <IPhoneMockup>
-                <PropertyPreview />
-              </IPhoneMockup>
+            <div className="flex w-full max-w-full justify-center overflow-visible px-4 sm:px-0">
+              <div className="w-[min(280px,calc(100vw-40px))] sm:w-[300px] md:w-[320px] lg:w-auto">
+                <IPhoneMockup>
+                  <PropertyPreview />
+                </IPhoneMockup>
+              </div>
             </div>
           </motion.div>
         </div>
