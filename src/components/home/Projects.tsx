@@ -46,8 +46,49 @@ export default function Projects() {
             subtitle="Production-Grade Real Estate Platform"
             description="A full-featured real-estate application engineered with Kotlin, Jetpack Compose, MVI and Clean Architecture. The app uses a multi-module architecture with dedicated feature, core, data and domain layers, Room + Paging 3 for local-first data and pagination, Ktor for the backend API, MongoDB for persistence, Hilt for dependency injection, and GitHub Actions for automated testing, linting and release APK builds. Features include onboarding and authentication, property discovery, search and filters, property details, favorites, messaging, notifications, profile and security flows, location selection, market insights and scheduling tours."
             image="/mockups/iphone15-black.png"
-            technologies=['Kotlin', 'Jetpack Compose', 'MVI', 'Clean Architecture', 'Multi-Module', 'Ktor', 'MongoDB', 'Room', 'Paging 3', 'Hilt', 'GitHub Actions']
-            screenshots=[{'              "/projects/propertyhub/01.png",\n              "/projects/propertyhub/02.png",\n              "/projects/propertyhub/03.png",\n              "/projects/propertyhub/04.png",\n              "/projects/propertyhub/05.png",\n              "/projects/propertyhub/06.png",\n              "/projects/propertyhub/07.png",\n              "/projects/propertyhub/08.png",\n              "/projects/propertyhub/09.png",\n              "/projects/propertyhub/10.png",\n              "/projects/propertyhub/11.png",\n              "/projects/propertyhub/12.png",\n              "/projects/propertyhub/13.png",\n              "/projects/propertyhub/14.png",\n              "/projects/propertyhub/15.png",\n              "/projects/propertyhub/16.png",\n              "/projects/propertyhub/17.png",\n              "/projects/propertyhub/18.png",\n              "/projects/propertyhub/19.png",\n              "/projects/propertyhub/20.png",\n              "/projects/propertyhub/21.png",\n              "/projects/propertyhub/22.png",\n              "/projects/propertyhub/23.png",\n              "/projects/propertyhub/24.png",\n              "/projects/propertyhub/25.png",\n              "/projects/propertyhub/26.png",\n              "/projects/propertyhub/27.png",\n              "/projects/propertyhub/28.png"'}]
+            technologies={[
+              "Kotlin",
+              "Jetpack Compose",
+              "MVI",
+              "Clean Architecture",
+              "Multi-Module",
+              "Ktor",
+              "MongoDB",
+              "Room",
+              "Paging 3",
+              "Hilt",
+              "GitHub Actions",
+            ]}
+            screenshots={[
+              "/projects/propertyhub/01.png",
+              "/projects/propertyhub/02.png",
+              "/projects/propertyhub/03.png",
+              "/projects/propertyhub/04.png",
+              "/projects/propertyhub/05.png",
+              "/projects/propertyhub/06.png",
+              "/projects/propertyhub/07.png",
+              "/projects/propertyhub/08.png",
+              "/projects/propertyhub/09.png",
+              "/projects/propertyhub/10.png",
+              "/projects/propertyhub/11.png",
+              "/projects/propertyhub/12.png",
+              "/projects/propertyhub/13.png",
+              "/projects/propertyhub/14.png",
+              "/projects/propertyhub/15.png",
+              "/projects/propertyhub/16.png",
+              "/projects/propertyhub/17.png",
+              "/projects/propertyhub/18.png",
+              "/projects/propertyhub/19.png",
+              "/projects/propertyhub/20.png",
+              "/projects/propertyhub/21.png",
+              "/projects/propertyhub/22.png",
+              "/projects/propertyhub/23.png",
+              "/projects/propertyhub/24.png",
+              "/projects/propertyhub/25.png",
+              "/projects/propertyhub/26.png",
+              "/projects/propertyhub/27.png",
+              "/projects/propertyhub/28.png",
+            ]}
           />
 
           <ProjectCard
@@ -69,13 +110,7 @@ export default function Projects() {
             subtitle="Multi Platform Streaming"
             description="Enterprise RTMP streaming engine with OpenGL rendering and modern Android architecture."
             image="/mockups/iphone15-natural.png"
-            technologies={[
-              "RTMP",
-              "OpenGL",
-              "Compose",
-              "Firebase",
-              "MVI",
-            ]}
+            technologies={["RTMP", "OpenGL", "Compose", "Firebase", "MVI"]}
           />
         </div>
       </div>
