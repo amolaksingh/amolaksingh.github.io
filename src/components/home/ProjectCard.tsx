@@ -22,9 +22,10 @@ export default function ProjectCard({
 }: Props) {
   const [showLiveDemo, setShowLiveDemo] = useState(false);
   const [showCaseStudy, setShowCaseStudy] = useState(false);
-  const [currentScreenshot, setCurrentScreenshot] = useState(0);
+  const [currentScreenshotIndex, setCurrentScreenshotIndex] = useState(0);
 
   const demoImage = screenshots[0];
+  const currentScreenshot = screenshots[currentScreenshotIndex];
   const previewImage = "/projects/propertyhub/home.png";
 
   return (
@@ -97,7 +98,7 @@ export default function ProjectCard({
               <button
                 type="button"
                 onClick={() => {
-                  setCurrentScreenshot(0);
+                  setCurrentScreenshotIndex(0);
                   setShowLiveDemo(true);
                 }}
                 className="
@@ -126,115 +127,66 @@ export default function ProjectCard({
       {/* Live Demo Modal */}
       {showLiveDemo && screenshots.length > 0 && (
         <div
-          className="
-      fixed inset-0 z-[100]
-      flex items-center justify-center
-      bg-black/95 p-4 backdrop-blur-md
-    "
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${title} live demo`}
-          onClick={() => setShowLiveDemo(false)}
+          className="flex max-h-[95vh] max-w-[95vw] flex-col items-center"
+          onClick={(event) => event.stopPropagation()}
         >
-          {/* Close */}
-          <button
-            type="button"
-            aria-label="Close live demo"
-            onClick={() => setShowLiveDemo(false)}
-            className="
-        absolute right-5 top-5 z-20
-        rounded-full border border-white/20
-        bg-white/10 px-4 py-2
-        text-2xl text-white
-        transition hover:bg-white/20
-      "
-          >
-            ×
-          </button>
-
-          <div
-            className="
-        flex h-full w-full
-        flex-col items-center justify-center
-      "
-            onClick={(event) => event.stopPropagation()}
-          >
-            {/* Header */}
-            <div className="mb-4 text-center">
-              <p className="text-sm font-medium uppercase tracking-[0.25em] text-blue-400">
-                App Screens
-              </p>
-
-              <h3 className="mt-2 text-2xl font-bold text-white">{title}</h3>
-
-              <p className="mt-1 text-sm text-slate-400">
-                {currentScreenshot + 1} / {screenshots.length}
-              </p>
-            </div>
-
-            {/* Phone */}
-            <div className="relative flex items-center">
-              {/* Previous */}
-              <button
-                type="button"
-                disabled={currentScreenshot === 0}
-                onClick={() =>
-                  setCurrentScreenshot((index) => Math.max(0, index - 1))
-                }
-                className="
-            absolute -left-14 z-10
-            flex h-11 w-11 items-center justify-center
-            rounded-full border border-white/20
-            bg-white/10 text-2xl text-white
-            transition hover:bg-white/20
-            disabled:cursor-not-allowed
-            disabled:opacity-30
-            sm:-left-20
-          "
-                aria-label="Previous screenshot"
-              >
-                ‹
-              </button>
-
-              <div className="h-[70vh] max-h-[800px]">
-                <IPhoneMockup>
-                  <img
-                    src={screenshots[currentScreenshot]}
-                    alt={`${title} screen ${currentScreenshot + 1}`}
-                    className="h-full w-full object-cover"
-                  />
-                </IPhoneMockup>
-              </div>
-
-              {/* Next */}
-              <button
-                type="button"
-                disabled={currentScreenshot === screenshots.length - 1}
-                onClick={() =>
-                  setCurrentScreenshot((index) =>
-                    Math.min(screenshots.length - 1, index + 1),
-                  )
-                }
-                className="
-            absolute -right-14 z-10
-            flex h-11 w-11 items-center justify-center
-            rounded-full border border-white/20
-            bg-white/10 text-2xl text-white
-            transition hover:bg-white/20
-            disabled:cursor-not-allowed
-            disabled:opacity-30
-            sm:-right-20
-          "
-                aria-label="Next screenshot"
-              >
-                ›
-              </button>
-            </div>
-
-            {/* Counter */}
-            <p className="mt-5 text-center text-sm text-slate-400">
-              PropertyHub Android application
+          <div className="mb-5 text-center">
+            <p className="text-sm font-medium uppercase tracking-[0.25em] text-blue-400">
+              Live Demo
             </p>
+
+            <h3 className="mt-2 text-2xl font-bold text-white">{title}</h3>
+          </div>
+
+          <div className="h-[75vh] max-h-[850px]">
+            <IPhoneMockup>
+              <img
+                src={currentScreenshot}
+                alt={`${title} screen ${currentScreenshotIndex + 1}`}
+                className="h-full w-full object-cover"
+              />
+            </IPhoneMockup>
+          </div>
+
+          {/* Navigation */}
+          <div className="mt-5 flex items-center gap-4">
+            <button
+              type="button"
+              disabled={currentScreenshotIndex === 0}
+              onClick={() =>
+                setCurrentScreenshotIndex((index) => Math.max(0, index - 1))
+              }
+              className="
+        rounded-xl border border-slate-700
+        px-4 py-2 text-white
+        transition hover:border-blue-500
+        disabled:cursor-not-allowed disabled:opacity-30
+      "
+            >
+              ←
+            </button>
+
+            <span className="min-w-[80px] text-center text-sm text-slate-300">
+              {currentScreenshotIndex + 1} / {screenshots.length}
+            </span>
+
+            <button
+              type="button"
+              disabled={currentScreenshotIndex === screenshots.length - 1}
+              onClick={() =>
+                setCurrentScreenshotIndex((index) =>
+                  Math.min(screenshots.length - 1, index + 1),
+                )
+              }
+              className="
+        rounded-xl border border-slate-700
+        px-4 py-2 text-white
+        transition hover:border-blue-500
+        disabled:cursor-not-allowed disabled:opacity-30
+      "
+            >
+              →
+            </button>
           </div>
         </div>
       )}
