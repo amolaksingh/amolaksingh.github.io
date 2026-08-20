@@ -25,6 +25,7 @@ export default function ProjectCard({
   const [currentScreenshot, setCurrentScreenshot] = useState(0);
 
   const demoImage = screenshots[0];
+  const previewImage = "/projects/propertyhub/home.png";
 
   return (
     <>
@@ -47,9 +48,9 @@ export default function ProjectCard({
           <div className="flex w-full min-w-0 justify-center">
             <div className="relative">
               <IPhoneMockup>
-                {demoImage ? (
+                {title === "PropertyHub" ? (
                   <img
-                    src={demoImage}
+                    src={previewImage}
                     alt={`${title} Home screen`}
                     className="h-full w-full object-cover"
                   />
