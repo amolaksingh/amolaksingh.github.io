@@ -45,7 +45,7 @@ export default function Projects() {
             title="PropertyHub"
             subtitle="Production-Grade Real Estate Platform"
             description="A full-featured real-estate application engineered with Kotlin, Jetpack Compose, MVI and Clean Architecture. The app uses a multi-module architecture with dedicated feature, core, data and domain layers, Room + Paging 3 for local-first data and pagination, Ktor for the backend API, MongoDB for persistence, Hilt for dependency injection, and GitHub Actions for automated testing, linting and release APK builds. Features include onboarding and authentication, property discovery, search and filters, property details, favorites, messaging, notifications, profile and security flows, location selection, market insights and scheduling tours."
-            image="/mockups/iphone15-black.png"
+            image="/mockups/iphone15-black.webp"
             technologies={[
               "Kotlin",
               "Jetpack Compose",
@@ -60,34 +60,34 @@ export default function Projects() {
               "GitHub Actions",
             ]}
             screenshots={[
-              "/projects/propertyhub/28.png",
-              "/projects/propertyhub/home.png",
-              "/projects/propertyhub/02.png",
-              "/projects/propertyhub/03.png",
-              "/projects/propertyhub/04.png",
-              "/projects/propertyhub/05.png",
-              "/projects/propertyhub/06.png",
-              "/projects/propertyhub/07.png",
-              "/projects/propertyhub/08.png",
-              "/projects/propertyhub/09.png",
-              "/projects/propertyhub/10.png",
-              "/projects/propertyhub/11.png",
-              "/projects/propertyhub/12.png",
-              "/projects/propertyhub/13.png",
-              "/projects/propertyhub/14.png",
-              "/projects/propertyhub/15.png",
-              "/projects/propertyhub/16.png",
-              "/projects/propertyhub/17.png",
-              "/projects/propertyhub/18.png",
-              "/projects/propertyhub/19.png",
-              "/projects/propertyhub/20.png",
-              "/projects/propertyhub/21.png",
-              "/projects/propertyhub/22.png",
-              "/projects/propertyhub/23.png",
-              "/projects/propertyhub/24.png",
-              "/projects/propertyhub/25.png",
-              "/projects/propertyhub/26.png",
-              "/projects/propertyhub/27.png",
+              "/projects/propertyhub/28.webp",
+              "/projects/propertyhub/home.webp",
+              "/projects/propertyhub/02.webp",
+              "/projects/propertyhub/03.webp",
+              "/projects/propertyhub/04.webp",
+              "/projects/propertyhub/05.webp",
+              "/projects/propertyhub/06.webp",
+              "/projects/propertyhub/07.webp",
+              "/projects/propertyhub/08.webp",
+              "/projects/propertyhub/09.webp",
+              "/projects/propertyhub/10.webp",
+              "/projects/propertyhub/11.webp",
+              "/projects/propertyhub/12.webp",
+              "/projects/propertyhub/13.webp",
+              "/projects/propertyhub/14.webp",
+              "/projects/propertyhub/15.webp",
+              "/projects/propertyhub/16.webp",
+              "/projects/propertyhub/17.webp",
+              "/projects/propertyhub/18.webp",
+              "/projects/propertyhub/19.webp",
+              "/projects/propertyhub/20.webp",
+              "/projects/propertyhub/21.webp",
+              "/projects/propertyhub/22.webp",
+              "/projects/propertyhub/23.webp",
+              "/projects/propertyhub/24.webp",
+              "/projects/propertyhub/25.webp",
+              "/projects/propertyhub/26.webp",
+              "/projects/propertyhub/27.webp",
             ]}
           />
 
@@ -95,7 +95,7 @@ export default function Projects() {
             title="AI Chat"
             subtitle="AI Assistant Platform"
             description="AI-powered assistant with streaming conversations, modern Compose UI and Gemini/OpenAI integration."
-            image="/mockups/iphone15-blue.png"
+            image="/mockups/iphone15-blue.webp"
             technologies={[
               "Gemini",
               "OpenAI",
@@ -109,7 +109,7 @@ export default function Projects() {
             title="Live Streaming"
             subtitle="Multi Platform Streaming"
             description="Enterprise RTMP streaming engine with OpenGL rendering and modern Android architecture."
-            image="/mockups/iphone15-natural.png"
+            image="/mockups/iphone15-natural.webp"
             technologies={["RTMP", "OpenGL", "Compose", "Firebase", "MVI"]}
           />
         </div>
