@@ -43,16 +43,11 @@ export default function Projects() {
         <div className="mt-14 w-full min-w-0 max-w-full space-y-8 sm:mt-20 sm:space-y-10">
           <ProjectCard
             title="PropertyHub"
-            subtitle="Premium Property Platform"
-            description="Modern real-estate investment platform built using Jetpack Compose, MVI, Ktor and Clean Architecture."
+            subtitle="Production-Grade Real Estate Platform"
+            description="A full-featured real-estate application engineered with Kotlin, Jetpack Compose, MVI and Clean Architecture. The app uses a multi-module architecture with dedicated feature, core, data and domain layers, Room + Paging 3 for local-first data and pagination, Ktor for the backend API, MongoDB for persistence, Hilt for dependency injection, and GitHub Actions for automated testing, linting and release APK builds. Features include onboarding and authentication, property discovery, search and filters, property details, favorites, messaging, notifications, profile and security flows, location selection, market insights and scheduling tours."
             image="/mockups/iphone15-black.png"
-            technologies={[
-              "Kotlin",
-              "Jetpack Compose",
-              "MVI",
-              "Ktor",
-              "Firebase",
-            ]}
+            technologies=['Kotlin', 'Jetpack Compose', 'MVI', 'Clean Architecture', 'Multi-Module', 'Ktor', 'MongoDB', 'Room', 'Paging 3', 'Hilt', 'GitHub Actions']
+            screenshots=[{'              "/projects/propertyhub/01.png",\n              "/projects/propertyhub/02.png",\n              "/projects/propertyhub/03.png",\n              "/projects/propertyhub/04.png",\n              "/projects/propertyhub/05.png",\n              "/projects/propertyhub/06.png",\n              "/projects/propertyhub/07.png",\n              "/projects/propertyhub/08.png",\n              "/projects/propertyhub/09.png",\n              "/projects/propertyhub/10.png",\n              "/projects/propertyhub/11.png",\n              "/projects/propertyhub/12.png",\n              "/projects/propertyhub/13.png",\n              "/projects/propertyhub/14.png",\n              "/projects/propertyhub/15.png",\n              "/projects/propertyhub/16.png",\n              "/projects/propertyhub/17.png",\n              "/projects/propertyhub/18.png",\n              "/projects/propertyhub/19.png",\n              "/projects/propertyhub/20.png",\n              "/projects/propertyhub/21.png",\n              "/projects/propertyhub/22.png",\n              "/projects/propertyhub/23.png",\n              "/projects/propertyhub/24.png",\n              "/projects/propertyhub/25.png",\n              "/projects/propertyhub/26.png",\n              "/projects/propertyhub/27.png",\n              "/projects/propertyhub/28.png"'}]
           />
 
           <ProjectCard
