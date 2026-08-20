@@ -45,7 +45,7 @@ export default function Projects() {
             title="PropertyHub"
             subtitle="Production-Grade Real Estate Platform"
             description="A full-featured real-estate application engineered with Kotlin, Jetpack Compose, MVI and Clean Architecture. The app uses a multi-module architecture with dedicated feature, core, data and domain layers, Room + Paging 3 for local-first data and pagination, Ktor for the backend API, MongoDB for persistence, Hilt for dependency injection, and GitHub Actions for automated testing, linting and release APK builds. Features include onboarding and authentication, property discovery, search and filters, property details, favorites, messaging, notifications, profile and security flows, location selection, market insights and scheduling tours."
-            image="/mockups/iphone15-black.webp"
+            image="/mockups/iphone15-black.png"
             technologies={[
               "Kotlin",
               "Jetpack Compose",
@@ -95,7 +95,7 @@ export default function Projects() {
             title="AI Chat"
             subtitle="AI Assistant Platform"
             description="AI-powered assistant with streaming conversations, modern Compose UI and Gemini/OpenAI integration."
-            image="/mockups/iphone15-blue.webp"
+            image="/mockups/iphone15-blue.png"
             technologies={[
               "Gemini",
               "OpenAI",
@@ -109,7 +109,7 @@ export default function Projects() {
             title="Live Streaming"
             subtitle="Multi Platform Streaming"
             description="Enterprise RTMP streaming engine with OpenGL rendering and modern Android architecture."
-            image="/mockups/iphone15-natural.webp"
+            image="/mockups/iphone15-natural.png"
             technologies={["RTMP", "OpenGL", "Compose", "Firebase", "MVI"]}
           />
         </div>

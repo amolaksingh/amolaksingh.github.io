@@ -3,7 +3,6 @@
 import Button from "../common/Button";
 import AnimatedBackground from "../background/AnimatedBackground";
 import IPhoneMockup from "../common/IPhoneMockup";
-import PropertyPreview from "../common/PropertyPreview";
 
 import { motion, Variants } from "framer-motion";
 
@@ -176,7 +175,11 @@ export default function Hero({ onOpenHire }: HeroProps) {
             <div className="flex w-full max-w-full justify-center overflow-visible px-4 sm:px-0">
               <div className="w-[min(280px,calc(100vw-40px))] sm:w-[300px] md:w-[320px] lg:w-auto">
                 <IPhoneMockup>
-                  <PropertyPreview />
+                  <img
+                    src="/projects/propertyhub/home.webp"
+                    alt="PropertyHub Android application home screen"
+                    className="h-full w-full object-cover"
+                  />
                 </IPhoneMockup>
               </div>
             </div>
