@@ -21,6 +21,8 @@ export default function ProjectCard({
   screenshots = [],
 }: Props) {
   const [showLiveDemo, setShowLiveDemo] = useState(false);
+  const [showCaseStudy, setShowCaseStudy] = useState(false);
+  const [currentScreenshot, setCurrentScreenshot] = useState(0);
 
   const demoImage = screenshots[0];
 
@@ -91,27 +93,27 @@ export default function ProjectCard({
 
             {/* Buttons */}
             <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row">
-              {demoImage && (
-                <button
-                  type="button"
-                  onClick={() => setShowLiveDemo(true)}
-                  className="
-                    w-full rounded-xl bg-blue-600 px-6 py-3
-                    font-semibold text-white transition
-                    hover:bg-blue-500 sm:w-auto
-                  "
-                >
-                  Live Demo
-                </button>
-              )}
+              <button
+                type="button"
+                onClick={() => {
+                  setCurrentScreenshot(0);
+                  setShowLiveDemo(true);
+                }}
+                className="
+      w-full rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white
+      transition hover:bg-blue-500 sm:w-auto
+    "
+              >
+                Live Demo
+              </button>
 
               <button
                 type="button"
+                onClick={() => setShowCaseStudy(true)}
                 className="
-                  w-full rounded-xl border border-slate-700
-                  px-6 py-3 font-semibold text-white
-                  transition hover:border-blue-500 sm:w-auto
-                "
+      w-full rounded-xl border border-slate-700 px-6 py-3 font-semibold
+      text-white transition hover:border-blue-500 sm:w-auto
+    "
               >
                 Case Study
               </button>
@@ -121,13 +123,13 @@ export default function ProjectCard({
       </div>
 
       {/* Live Demo Modal */}
-      {showLiveDemo && demoImage && (
+      {showLiveDemo && screenshots.length > 0 && (
         <div
           className="
-            fixed inset-0 z-[100]
-            flex items-center justify-center
-            bg-black/90 p-4 backdrop-blur-md
-          "
+      fixed inset-0 z-[100]
+      flex items-center justify-center
+      bg-black/95 p-4 backdrop-blur-md
+    "
           role="dialog"
           aria-modal="true"
           aria-label={`${title} live demo`}
@@ -139,44 +141,200 @@ export default function ProjectCard({
             aria-label="Close live demo"
             onClick={() => setShowLiveDemo(false)}
             className="
-              absolute right-5 top-5 z-10
-              rounded-full border border-white/20
-              bg-white/10 px-4 py-2
-              text-2xl text-white
-              transition hover:bg-white/20
-            "
+        absolute right-5 top-5 z-20
+        rounded-full border border-white/20
+        bg-white/10 px-4 py-2
+        text-2xl text-white
+        transition hover:bg-white/20
+      "
           >
             ×
           </button>
 
-          {/* Demo */}
           <div
-            className="flex max-h-[95vh] max-w-[95vw] flex-col items-center"
+            className="
+        flex h-full w-full
+        flex-col items-center justify-center
+      "
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="mb-5 text-center">
+            {/* Header */}
+            <div className="mb-4 text-center">
               <p className="text-sm font-medium uppercase tracking-[0.25em] text-blue-400">
-                Live Demo
+                App Screens
               </p>
 
-              <h3 className="mt-2 text-2xl font-bold text-white">
-                {title}
-              </h3>
+              <h3 className="mt-2 text-2xl font-bold text-white">{title}</h3>
+
+              <p className="mt-1 text-sm text-slate-400">
+                {currentScreenshot + 1} / {screenshots.length}
+              </p>
             </div>
 
-            <div className="h-[75vh] max-h-[850px]">
-              <IPhoneMockup>
-                <img
-                  src={demoImage}
-                  alt={`${title} Home screen`}
-                  className="h-full w-full object-cover"
-                />
-              </IPhoneMockup>
+            {/* Phone */}
+            <div className="relative flex items-center">
+              {/* Previous */}
+              <button
+                type="button"
+                disabled={currentScreenshot === 0}
+                onClick={() =>
+                  setCurrentScreenshot((index) => Math.max(0, index - 1))
+                }
+                className="
+            absolute -left-14 z-10
+            flex h-11 w-11 items-center justify-center
+            rounded-full border border-white/20
+            bg-white/10 text-2xl text-white
+            transition hover:bg-white/20
+            disabled:cursor-not-allowed
+            disabled:opacity-30
+            sm:-left-20
+          "
+                aria-label="Previous screenshot"
+              >
+                ‹
+              </button>
+
+              <div className="h-[70vh] max-h-[800px]">
+                <IPhoneMockup>
+                  <img
+                    src={screenshots[currentScreenshot]}
+                    alt={`${title} screen ${currentScreenshot + 1}`}
+                    className="h-full w-full object-cover"
+                  />
+                </IPhoneMockup>
+              </div>
+
+              {/* Next */}
+              <button
+                type="button"
+                disabled={currentScreenshot === screenshots.length - 1}
+                onClick={() =>
+                  setCurrentScreenshot((index) =>
+                    Math.min(screenshots.length - 1, index + 1),
+                  )
+                }
+                className="
+            absolute -right-14 z-10
+            flex h-11 w-11 items-center justify-center
+            rounded-full border border-white/20
+            bg-white/10 text-2xl text-white
+            transition hover:bg-white/20
+            disabled:cursor-not-allowed
+            disabled:opacity-30
+            sm:-right-20
+          "
+                aria-label="Next screenshot"
+              >
+                ›
+              </button>
             </div>
 
+            {/* Counter */}
             <p className="mt-5 text-center text-sm text-slate-400">
-              Interactive Android application showcase
+              PropertyHub Android application
             </p>
+          </div>
+        </div>
+      )}
+
+      {showCaseStudy && (
+        <div
+          className="fixed inset-0 z-[100] overflow-y-auto bg-black/90 p-4 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${title} case study`}
+          onClick={() => setShowCaseStudy(false)}
+        >
+          <div
+            className="
+        relative mx-auto my-8 w-full max-w-4xl rounded-3xl
+        border border-slate-800 bg-slate-900 p-6 shadow-2xl
+        sm:p-10
+      "
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              aria-label="Close case study"
+              onClick={() => setShowCaseStudy(false)}
+              className="
+          absolute right-5 top-5 rounded-full border border-white/20
+          bg-white/10 px-4 py-2 text-xl text-white
+          hover:bg-white/20
+        "
+            >
+              ×
+            </button>
+
+            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-400">
+              Case Study
+            </span>
+
+            <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+              {title}
+            </h2>
+
+            <p className="mt-4 text-base leading-8 text-slate-400">
+              {description}
+            </p>
+
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold text-white">Architecture</h3>
+
+              <p className="mt-3 leading-7 text-slate-400">
+                PropertyHub follows a scalable multi-module Clean Architecture
+                with separate feature, core, domain and data layers. State
+                management is implemented using MVI.
+              </p>
+            </div>
+
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold text-white">
+                Technology Stack
+              </h3>
+
+              <div className="mt-4 flex flex-wrap gap-3">
+                {technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="
+                rounded-full border border-slate-700
+                bg-slate-950 px-4 py-2 text-sm text-slate-300
+              "
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold text-white">Key Features</h3>
+
+              <ul className="mt-4 space-y-3 text-slate-400">
+                <li>• User onboarding and authentication</li>
+                <li>• Property discovery and search</li>
+                <li>• Advanced property filters</li>
+                <li>• Property details and market insights</li>
+                <li>• Favorites and saved properties</li>
+                <li>• Messaging and notifications</li>
+                <li>• Profile and security management</li>
+                <li>• Location selection</li>
+                <li>• Tour scheduling</li>
+                <li>• Local-first data with Room and Paging 3</li>
+              </ul>
+            </div>
+
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold text-white">Backend</h3>
+
+              <p className="mt-3 leading-7 text-slate-400">
+                The backend is built with Ktor and uses MongoDB for persistence.
+                GitHub Actions is used for automated testing, linting and
+                release APK generation.
+              </p>
+            </div>
           </div>
         </div>
       )}
