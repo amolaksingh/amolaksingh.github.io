@@ -59,36 +59,7 @@ export default function Projects() {
               "Hilt",
               "GitHub Actions",
             ]}
-            screenshots={[
-              "/projects/propertyhub/01.png",
-              "/projects/propertyhub/02.png",
-              "/projects/propertyhub/03.png",
-              "/projects/propertyhub/04.png",
-              "/projects/propertyhub/05.png",
-              "/projects/propertyhub/06.png",
-              "/projects/propertyhub/07.png",
-              "/projects/propertyhub/08.png",
-              "/projects/propertyhub/09.png",
-              "/projects/propertyhub/10.png",
-              "/projects/propertyhub/11.png",
-              "/projects/propertyhub/12.png",
-              "/projects/propertyhub/13.png",
-              "/projects/propertyhub/14.png",
-              "/projects/propertyhub/15.png",
-              "/projects/propertyhub/16.png",
-              "/projects/propertyhub/17.png",
-              "/projects/propertyhub/18.png",
-              "/projects/propertyhub/19.png",
-              "/projects/propertyhub/20.png",
-              "/projects/propertyhub/21.png",
-              "/projects/propertyhub/22.png",
-              "/projects/propertyhub/23.png",
-              "/projects/propertyhub/24.png",
-              "/projects/propertyhub/25.png",
-              "/projects/propertyhub/26.png",
-              "/projects/propertyhub/27.png",
-              "/projects/propertyhub/28.png",
-            ]}
+            screenshots={["/projects/propertyhub/home.png"]}
           />
 
           <ProjectCard
